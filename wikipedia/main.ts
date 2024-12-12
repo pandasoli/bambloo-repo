@@ -1,4 +1,4 @@
-import type { Presence } from '../models/Presence.ts'
+import type { Presence } from '../../models/Presence.ts'
 
 
 export const url = 'wikipedia.org'
@@ -21,7 +21,7 @@ export const fn = () => {
 		let topmost: Element | null = null
 		let topmost_top: number = 0
 
-		for (const ele of eles) {
+		eles.forEach(ele => {
 			const top = ele.getBoundingClientRect().top
 
 			if (top <= 0)
@@ -29,7 +29,7 @@ export const fn = () => {
 					topmost = ele
 					topmost_top = top
 				}
-		}
+		})
 
 		return topmost
 	}

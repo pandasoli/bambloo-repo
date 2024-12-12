@@ -1,4 +1,4 @@
-import type { Presence } from '../models/Presence'
+import type { Presence } from '../../models/Presence.ts'
 
 
 export const url = 'duckduckgo.com'
