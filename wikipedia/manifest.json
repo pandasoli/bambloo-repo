@@ -4,8 +4,8 @@
 	"author": "elisoli",
 
 	"images": {
-		"background": "https://images.pexels.com/photos/1193892/pexels-photo-1193892.png",
-		"icon": "https://static-00.iconduck.com/assets.00/duckduckgo-icon-512x512-zp12dd1l.png"
+		"background": "./bg.png",
+		"icon": "./icon.png"
 	},
 
 	"previews": [
