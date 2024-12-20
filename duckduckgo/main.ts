@@ -1,15 +1,16 @@
-import type { Presence } from '../Presence.ts'
+import type { Activity } from '../Activity.ts'
 
-const presence: Presence = {
+
+const update = (presence: Activity) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence })
+const log = (...data: any) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data })
+
+const presence: Activity = {
 	assets: {
 		large_image: 'https://duckduckgo.com/assets/logo_header_mobile.alt.v109.svg'
 	},
 	timestamps: { start: Date.now() },
 	buttons: [ {label: 'Search it too', url: window.location.href} ]
 }
-
-const update = (presence: Presence) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence })
-const log = (...data: any) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data })
 
 const params = new URLSearchParams(window.location.search)
 const paths = window.location.pathname

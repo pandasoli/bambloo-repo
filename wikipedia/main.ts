@@ -1,10 +1,10 @@
-import type { Presence } from '../Presence.ts'
+import type { Activity } from '../Activity.ts'
 
 
-const update = (presence: Presence) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence })
+const update = (presence: Activity) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence })
 const log = (...data: any) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data })
 
-const presence: Presence = {
+const presence: Activity = {
 	assets: {
 		large_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png'
 	},
