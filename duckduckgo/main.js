@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const update = (presence) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence });
 const log = (...data) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data });
 const presence = {
@@ -25,3 +23,4 @@ const details = () => params.get('iaxm') === 'maps' ?
 presence.state = state();
 presence.details = details();
 update(presence);
+export {};

@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,7 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 const update = (presence) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence });
 const log = (...data) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data });
 const presence = {
@@ -47,3 +45,4 @@ window.addEventListener('scroll', () => {
     clearTimeout(scrolling);
     scrolling = setTimeout(fn, 1000);
 });
+export {};
