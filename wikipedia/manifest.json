@@ -17,7 +17,7 @@
 		"https://static.independent.co.uk/2023/07/06/18/da8bc6e480c4ed0ee405828575485afeY29udGVudHNlYXJjaGFwaSwxNjg4NzQ4ODMw-2.23974786.jpg"
 	],
 
-	"urls": [ "https://*.wikipedia.com/wiki/*" ],
+	"urls": [ "https://*.wikipedia.org/wiki/*" ],
 
 	"script": "main.js"
 
