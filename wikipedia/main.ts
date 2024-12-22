@@ -42,15 +42,17 @@ const fn = async () => {
 	update(presence)
 }
 
+let scrolling: number
+
 const loop = () => {
 	clearTimeout(scrolling)
 	scrolling = setTimeout(fn, 1000)
 }
 
-let scrolling: number
-
 window.addEventListener('message', e => {
-	switch ((e as any).detail.type) {
+	const data = (e as any).detail[0]
+
+	switch (data.type) {
 		case 'stop':
 			clearTimeout(scrolling)
 			window.removeEventListener('scroll', loop)

@@ -37,13 +37,14 @@ const fn = () => __awaiter(void 0, void 0, void 0, function* () {
         presence.state = `inside ${subtitle}`;
     update(presence);
 });
+let scrolling;
 const loop = () => {
     clearTimeout(scrolling);
     scrolling = setTimeout(fn, 1000);
 };
-let scrolling;
 window.addEventListener('message', e => {
-    switch (e.detail.type) {
+    const data = e.detail[0];
+    switch (data.type) {
         case 'stop':
             clearTimeout(scrolling);
             window.removeEventListener('scroll', loop);
