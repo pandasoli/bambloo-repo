@@ -5,8 +5,8 @@ const presence = {
     timestamps: { start: Date.now() },
     buttons: [{ label: 'Search it too', url: window.location.href }]
 };
-chrome.runtime.onMessage.addListener(msg => {
-    if (msg.type !== 'input')
+window.addEventListener('message', e => {
+    if (e.detail.type !== 'input')
         return;
     const params = new URLSearchParams(window.location.search);
     const state = () => params.get('q')

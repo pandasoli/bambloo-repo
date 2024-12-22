@@ -38,8 +38,8 @@ const fn = () => __awaiter(void 0, void 0, void 0, function* () {
     update(presence);
 });
 let scrolling;
-chrome.runtime.onMessage.addListener(msg => {
-    switch (msg.type) {
+window.addEventListener('message', e => {
+    switch (e.detail.type) {
         case 'stop':
             clearTimeout(scrolling);
             break;
