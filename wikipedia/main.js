@@ -49,8 +49,7 @@ window.addEventListener('message', e => {
             clearTimeout(scrolling);
             window.removeEventListener('scroll', loop);
             break;
-        case 'restart':
-        case 'input':
+        case 'start':
             fn();
             window.addEventListener('scroll', loop);
     }

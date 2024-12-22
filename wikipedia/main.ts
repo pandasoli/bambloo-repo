@@ -58,8 +58,7 @@ window.addEventListener('message', e => {
 			window.removeEventListener('scroll', loop)
 			break
 
-		case 'restart':
-		case 'input':
+		case 'start':
 			fn()
 			window.addEventListener('scroll', loop)
 		}

@@ -7,7 +7,7 @@ const presence = {
 };
 window.addEventListener('message', e => {
     const data = e.detail;
-    if (data.type !== 'input' && data.type !== 'restart')
+    if (data.type !== 'start')
         return;
     const params = new URLSearchParams(window.location.search);
     const state = () => params.get('q')
