@@ -43,7 +43,7 @@ const loop = () => {
     scrolling = setTimeout(fn, 1000);
 };
 window.addEventListener('message', e => {
-    const data = e.detail[0];
+    const data = e.detail;
     switch (data.type) {
         case 'stop':
             clearTimeout(scrolling);

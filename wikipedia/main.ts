@@ -2,7 +2,7 @@ import type { Activity } from '../Activity.ts'
 
 
 declare const update: (presence: Activity) => void
-declare const log: (...data: any) => void
+declare const log: (data: any) => void
 
 
 const presence: Activity = {
@@ -50,7 +50,7 @@ const loop = () => {
 }
 
 window.addEventListener('message', e => {
-	const data = (e as any).detail[0]
+	const data = (e as any).detail
 
 	switch (data.type) {
 		case 'stop':

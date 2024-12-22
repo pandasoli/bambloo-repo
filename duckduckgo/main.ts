@@ -2,7 +2,7 @@ import type { Activity } from '../Activity.ts'
 
 
 declare const update: (presence: Activity) => void
-declare const log: (...data: any) => void
+declare const log: (data: any) => void
 
 
 const presence: Activity = {
@@ -14,7 +14,7 @@ const presence: Activity = {
 }
 
 window.addEventListener('message', e => {
-	const data = (e as any).detail[0]
+	const data = (e as any).detail
 
 	if (data.type !== 'input' && data.type !== 'restart') return
 
