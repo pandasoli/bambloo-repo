@@ -7,8 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const update = (presence) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence });
-const log = (...data) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data });
 const presence = {
     assets: {
         large_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png'
@@ -40,9 +38,17 @@ const fn = () => __awaiter(void 0, void 0, void 0, function* () {
     update(presence);
 });
 let scrolling;
-fn();
-window.addEventListener('scroll', () => {
-    clearTimeout(scrolling);
-    scrolling = setTimeout(fn, 1000);
+chrome.runtime.onMessage.addListener(msg => {
+    switch (msg.type) {
+        case 'stop':
+            clearTimeout(scrolling);
+            break;
+        case 'input':
+            fn();
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrolling);
+                scrolling = setTimeout(fn, 1000);
+            });
+    }
 });
 export {};
