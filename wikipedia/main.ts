@@ -1,8 +1,9 @@
 import type { Activity } from '../Activity.ts'
 
 
-const update = (presence: Activity) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence })
-const log = (...data: any) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data })
+declare const update: (presence: Activity) => void
+declare const log: (...data: any) => void
+
 
 const presence: Activity = {
 	assets: {
@@ -42,9 +43,19 @@ const fn = async () => {
 }
 
 let scrolling: number
-fn()
 
-window.addEventListener('scroll', () => {
-	clearTimeout(scrolling)
-	scrolling = setTimeout(fn, 1000)
+chrome.runtime.onMessage.addListener(msg => {
+	switch (msg.type) {
+		case 'stop':
+			clearTimeout(scrolling)
+			break
+
+		case 'input':
+			fn()
+
+			window.addEventListener('scroll', () => {
+				clearTimeout(scrolling)
+				scrolling = setTimeout(fn, 1000)
+			})
+	}
 })

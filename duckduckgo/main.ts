@@ -1,8 +1,9 @@
 import type { Activity } from '../Activity.ts'
 
 
-const update = (presence: Activity) => chrome.runtime.sendMessage({ target: 'background', type: 'presence', presence })
-const log = (...data: any) => chrome.runtime.sendMessage({ target: 'background', type: 'log', data })
+declare const update: (presence: Activity) => void
+declare const log: (...data: any) => void
+
 
 const presence: Activity = {
 	assets: {
@@ -12,25 +13,25 @@ const presence: Activity = {
 	buttons: [ {label: 'Search it too', url: window.location.href} ]
 }
 
-const params = new URLSearchParams(window.location.search)
-const paths = window.location.pathname
-	.replace(/^\/|\/$/, '')
-	.split('/')
-	.filter(e => e)
+chrome.runtime.onMessage.addListener(msg => {
+	if (msg.type !== 'input') return
 
-const state = () =>
-	params.get('q')
-		? `Searching for ${params.get('q')}`
-		: 'In the home page'
+	const params = new URLSearchParams(window.location.search)
 
-const details = () =>
-	params.get('iaxm') === 'maps' ?
-		'Looking for places in the map'
-	: params.get('ia') && params.get('ia') !== 'web' ?
-		`Looking for ${params.get('ia')}`
-	: ''
+	const state = () =>
+		params.get('q')
+			? `Searching for ${params.get('q')}`
+			: 'In the home page'
 
-presence.state = state()
-presence.details = details()
+	const details = () =>
+		params.get('iaxm') === 'maps' ?
+			'Looking for places in the map'
+		: params.get('ia') && params.get('ia') !== 'web' ?
+			`Looking for ${params.get('ia')}`
+		: ''
 
-update(presence)
+	presence.state = state()
+	presence.details = details()
+
+	update(presence)
+})
