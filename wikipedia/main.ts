@@ -44,8 +44,8 @@ const fn = async () => {
 
 let scrolling: number
 
-chrome.runtime.onMessage.addListener(msg => {
-	switch (msg.type) {
+window.addEventListener('message', e => {
+	switch ((e as any).detail.type) {
 		case 'stop':
 			clearTimeout(scrolling)
 			break

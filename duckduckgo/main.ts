@@ -13,8 +13,8 @@ const presence: Activity = {
 	buttons: [ {label: 'Search it too', url: window.location.href} ]
 }
 
-chrome.runtime.onMessage.addListener(msg => {
-	if (msg.type !== 'input') return
+window.addEventListener('message', e => {
+	if ((e as any).detail.type !== 'input') return
 
 	const params = new URLSearchParams(window.location.search)
 
