@@ -14,7 +14,8 @@ const presence: Activity = {
 }
 
 window.addEventListener('message', e => {
-	if ((e as any).detail.type !== 'input') return
+	const type = (e as any).detail.type
+	if (type !== 'input' && type !== 'restart') return
 
 	const params = new URLSearchParams(window.location.search)
 

@@ -1,1 +1,2 @@
 npm run compile
+git add **/*.js

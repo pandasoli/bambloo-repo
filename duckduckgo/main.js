@@ -6,7 +6,8 @@ const presence = {
     buttons: [{ label: 'Search it too', url: window.location.href }]
 };
 window.addEventListener('message', e => {
-    if (e.detail.type !== 'input')
+    const type = e.detail.type;
+    if (type !== 'input' && type !== 'restart')
         return;
     const params = new URLSearchParams(window.location.search);
     const state = () => params.get('q')
