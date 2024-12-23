@@ -17,7 +17,7 @@
 		"https://media.wired.com/photos/62558557691ef674c014e07b/master/pass/DuckDuckGo-for-Mac-Sec.jpg"
 	],
 
-	"urls": [ "https://duckduckgo.com" ],
+	"urls": [ "https://duckduckgo.com/*" ],
 
 	"script": "main.js"
 }
