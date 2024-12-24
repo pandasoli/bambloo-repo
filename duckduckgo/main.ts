@@ -7,7 +7,7 @@ declare const log: (data: any) => void
 
 const presence: Activity = {
 	assets: {
-		large_image: 'https://duckduckgo.com/assets/logo_header_mobile.alt.v109.svg'
+		large_image: 'https://logodix.com/logo/48308.png'
 	},
 	timestamps: { start: Date.now() },
 	buttons: [ {label: 'Search it too', url: window.location.href} ]
