@@ -20,12 +20,12 @@ window.addEventListener('message', e => {
 
 	const params = new URLSearchParams(window.location.search)
 
-	const state = () =>
+	const details = () =>
 		params.get('q')
 			? `Searching for ${params.get('q')}`
 			: 'In the home page'
 
-	const details = () =>
+	const state = () =>
 		params.get('iaxm') === 'maps' ?
 			'Looking for places in the map'
 		: params.get('ia') && params.get('ia') !== 'web' ?
