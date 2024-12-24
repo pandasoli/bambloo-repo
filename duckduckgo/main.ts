@@ -30,7 +30,7 @@ window.addEventListener('message', e => {
 			'Looking for places in the map'
 		: params.get('ia') && params.get('ia') !== 'web' ?
 			`Looking for ${params.get('ia')}`
-		: ''
+		: 'Looking for a good link'
 
 	presence.state = state()
 	presence.details = details()

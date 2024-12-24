@@ -38,6 +38,7 @@ const fn = async () => {
 
 	presence.details = `Reading about ${title}`
 	if (subtitle) presence.state = `inside ${subtitle}`
+	else presence.state = 'It seems pretty interesting...'
 
 	update(presence)
 }

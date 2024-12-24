@@ -35,6 +35,8 @@ const fn = () => __awaiter(void 0, void 0, void 0, function* () {
     presence.details = `Reading about ${title}`;
     if (subtitle)
         presence.state = `inside ${subtitle}`;
+    else
+        presence.state = 'It seems pretty interesting...';
     update(presence);
 });
 let scrolling;
