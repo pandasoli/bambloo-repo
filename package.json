@@ -1,0 +1,11 @@
+{
+  "name": "repo",
+  "module": "compile.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

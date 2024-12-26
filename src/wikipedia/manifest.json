@@ -1,0 +1,24 @@
+{
+	"title": "Wikipedia",
+	"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged.",
+	"author": "elisoli",
+
+	"title_color": "#000",
+
+	"images": {
+		"background": "./bg.png",
+		"icon": "./icon.png"
+	},
+
+	"previews": [
+		"https://wallpaperaccess.com/full/7408450.jpg",
+		"https://wallpaperaccess.com/full/7408452.jpg",
+		"https://wallpaperaccess.com/full/7408480.jpg",
+		"https://static.independent.co.uk/2023/07/06/18/da8bc6e480c4ed0ee405828575485afeY29udGVudHNlYXJjaGFwaSwxNjg4NzQ4ODMw-2.23974786.jpg"
+	],
+
+	"urls": [ "https://*.wikipedia.org/wiki/*" ],
+
+	"script": "main.js"
+
+}
