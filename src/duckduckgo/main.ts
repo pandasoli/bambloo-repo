@@ -11,7 +11,7 @@ const presence: Activity = {
 	buttons: [ {label: 'Search it too', url: window.location.href} ]
 }
 
-bambloo.onMessage(msg => {
+bambloo.onMessage.addListener(msg => {
 	if (msg.type !== 'start') return
 
 	const params = new URLSearchParams(window.location.search)

@@ -41,14 +41,14 @@ const fn = async () => {
 	bambloo.update(presence)
 }
 
-let scrolling: number
+let scrolling: Timer
 
 const loop = () => {
 	clearTimeout(scrolling)
 	scrolling = setTimeout(fn, 1000)
 }
 
-bambloo.onMessage(msg => {
+bambloo.onMessage.addListener(msg => {
 	switch (msg.type) {
 		case 'stop':
 			clearTimeout(scrolling)
