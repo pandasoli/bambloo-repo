@@ -1,27 +1,30 @@
 import type { Activity } from './Activity.ts'
 
 
-namespace bambloo {
-	export const update = (activity: Activity) => chrome.runtime.sendMessage({ type: 'activity', activity })
-	export const log = (data: any) => chrome.runtime.sendMessage({ type: 'log', data })
+globalThis.bambloo = {
+	repo: '<!-- repo -->',
+	path: '<!-- path -->',
 
-	export const onMessage = {
-		listeners: [] as ((data: any) => any)[],
+	update: (activity: Activity) => chrome.runtime.sendMessage({ type: 'activity', activity }),
+	log: (data: any) => chrome.runtime.sendMessage({ type: 'log', data }),
+
+	onMessage: {
+		__listeners__: [],
 
 		addListener: function(callback: (data: any) => void) {
 			const fn = (e: MessageEvent) =>
 				callback((e as any).detail)
 
 			addEventListener('message', fn)
-			this.listeners.push(callback)
+			this.__listeners__.push(callback)
 		},
 
 		removeListener: function(callback: (data: any) => void) {
-			const fn = this.listeners.find(e => e === callback)
+			const fn = this.__listeners__.find(e => e === callback)
 
 			if (fn) {
 				removeEventListener('message', fn)
-				this.listeners = this.listeners.filter(e => e !== callback)
+				this.__listeners__ = this.__listeners__.filter(e => e !== callback)
 			}
 		}
 	}

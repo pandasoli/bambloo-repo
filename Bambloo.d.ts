@@ -6,6 +6,7 @@ declare global {
 		export const update: (activity: Activity) => void
 		export const log: (data: any) => void
 		export const onMessage: {
+			__listeners__: ((msg: any) => void)[]
 			addListener: (callback: (msg: any) => void) => void
 			removeListener: (callback: (msg: any) => void) => void
 		}
@@ -14,3 +15,5 @@ declare global {
 		export const path: string
 	}
 }
+
+export {}
