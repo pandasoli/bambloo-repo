@@ -1,0 +1,18 @@
+{
+	"title": "Generic",
+	"description": "Generic presence script for all websites",
+	"author": "elisoli",
+
+	"title_color": "#050505",
+
+	"images": {
+		"background": "./background.jpg",
+		"icon": "./icon.svg"
+	},
+
+	"previews": [],
+
+	"urls": [ "<all_urls>" ],
+
+	"script": "main.js"
+}
