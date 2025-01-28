@@ -29,7 +29,7 @@ bambloo.onMessage.addListener(msg => {
 		large_image: getFaviconUrl()
 	}
 	presence.state = document.title
-	presence.details = getPageDescription() || ''
+	presence.details = getPageDescription() || `Browser at ${window.location.origin}`
 
 	bambloo.update(presence)
 })
