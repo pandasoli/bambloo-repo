@@ -1,2 +1,2 @@
-bun run compile
+bun run build
 git add src/**/*.js
