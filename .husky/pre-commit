@@ -1,2 +1,2 @@
 bun run build
-git add src/**/*.js
+git add src/**/*.js bambloo.js

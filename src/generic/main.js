@@ -19,7 +19,7 @@ bambloo.onMessage.addListener((msg) => {
   presence.assets = {
     large_image: getFaviconUrl()
   };
-  presence.state = document.title;
-  presence.details = getPageDescription() ?? `Browsing at ${window.location.origin}`;
+  presence.details = document.title;
+  presence.state = getPageDescription() || `Browsing at ${window.location.origin}`;
   bambloo.update(presence);
 });

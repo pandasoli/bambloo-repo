@@ -2,8 +2,17 @@
 globalThis.bambloo = {
   repo: "<!-- repo -->",
   path: "<!-- path -->",
-  update: (activity) => chrome.runtime.sendMessage({ type: "activity", activity }),
-  log: (data) => chrome.runtime.sendMessage({ type: "log", data }),
+  id: Number("<!-- id -->"),
+  update: (activity) => chrome.runtime.sendMessage({
+    id: Number("<!-- id -->"),
+    type: "activity",
+    activity
+  }),
+  log: (data) => chrome.runtime.sendMessage({
+    id: Number("<!-- id -->"),
+    type: "log",
+    data
+  }),
   onMessage: {
     __listeners__: [],
     addListener: function(callback) {
