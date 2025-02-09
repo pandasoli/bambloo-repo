@@ -4,6 +4,7 @@ import type { Activity } from './Activity.ts'
 globalThis.bambloo = {
 	repo: '<!-- repo -->',
 	path: '<!-- path -->',
+	id: Number('<!-- id -->'),
 
 	update: (activity: Activity) => chrome.runtime.sendMessage({ type: 'activity', activity }),
 	log: (data: any) => chrome.runtime.sendMessage({ type: 'log', data }),

@@ -13,6 +13,7 @@ declare global {
 
 		export const repo: string
 		export const path: string
+		export const id: number
 	}
 }
 
