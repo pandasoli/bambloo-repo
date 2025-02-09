@@ -6,8 +6,19 @@ globalThis.bambloo = {
 	path: '<!-- path -->',
 	id: Number('<!-- id -->'),
 
-	update: (activity: Activity) => chrome.runtime.sendMessage({ type: 'activity', activity }),
-	log: (data: any) => chrome.runtime.sendMessage({ type: 'log', data }),
+	update: (activity: Activity) =>
+		chrome.runtime.sendMessage({
+			id: Number('<!-- id -->'),
+			type: 'activity',
+			activity
+		}),
+
+	log: (data: any) =>
+		chrome.runtime.sendMessage({
+			id: Number('<!-- id -->'),
+			type: 'log',
+			data
+		}),
 
 	onMessage: {
 		__listeners__: [],
